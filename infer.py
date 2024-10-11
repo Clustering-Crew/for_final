@@ -8,6 +8,8 @@ from ensemble_boxes import *
 
 # Define function to display the image
 def show_image(im, filename, name='image'):
+    if not os.path.exists("./runs"):
+        os.mkdir("./runs")
     cv2.imwrite(f"./runs/{filename}.jpg", im)
     # cv2.imshow(name, im.astype(np.uint8))
     # cv2.waitKey(250)
@@ -71,7 +73,7 @@ for filename in os.listdir(opt.source):
     # Detections YOLOv5
     result_n = v5_n(img)
     result_s = v5_s(img)
-    # result_m = v5_m(img)
+    result_m = v5_m(img)
 
     # Detection YOLOv8
     result_v8_n = v8_n.predict(source=img, conf=0.25)[0].boxes.cpu()
@@ -123,19 +125,19 @@ for filename in os.listdir(opt.source):
         all_conf.append(conf)
         all_classes.append(classes)
 
-    # for i in result_m.xyxyn:
-    #     labels = []
-    #     conf = []
-    #     classes = []
-    #
-    #     for ele in i:
-    #         labels.append(ele[:4].cpu().tolist())
-    #         conf.append(ele[4].cpu().tolist())
-    #         classes.append(ele[5].cpu().tolist())
-    #
-    #     all_labels.append(labels)
-    #     all_conf.append(conf)
-    #     all_classes.append(classes)
+    for i in result_m.xyxyn:
+        labels = []
+        conf = []
+        classes = []
+    
+        for ele in i:
+            labels.append(ele[:4].cpu().tolist())
+            conf.append(ele[4].cpu().tolist())
+            classes.append(ele[5].cpu().tolist())
+    
+        all_labels.append(labels)
+        all_conf.append(conf)
+        all_classes.append(classes)
 
 
     # Include results from YOLOv8
