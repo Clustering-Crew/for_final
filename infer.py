@@ -39,17 +39,17 @@ opt = parser.parse_args()
 # YOLOv5-------------------------------------------------------------------------------------------------
 v5_n = t.hub.load(
     "ultralytics/yolov5", 
-    "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_n\weights\best.pt"
+    "custom",   path="./torch_weights/v5n.pt"
 )
 
 v5_s = t.hub.load(
     "ultralytics/yolov5", 
-    "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_s\weights\best.pt"
+    "custom",   path="./torch_weights/v5s.pt"
 )
 
 v5_m = t.hub.load(
     "ultralytics/yolov5",
-    "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_m\weights\best.pt"
+    "custom",   path="./torch_weights/v5m.pt"
 )
 
 # Set confidence
@@ -60,9 +60,9 @@ v5_m.conf = 0.25
 
 # YOLOv8-------------------------------------------------------------------------------------------------------
 
-v8_n = YOLO(r"D:\Underwater_imaging\All_results\combined\yolov8\combined_v8_n\weights\best.pt")
-v8_s = YOLO(r"D:\Underwater_imaging\All_results\combined\yolov8\combined_v8_s\weights\best.pt")
-v8_m = YOLO(r"D:\Underwater_imaging\All_results\combined\yolov8\combined_v8_m\weights\best.pt")
+v8_n = YOLO("./torch_weights/v8n.pt")
+v8_s = YOLO("./torch_weights/v8s.pt")
+v8_m = YOLO("./torch_weights/v8m.pt")
 
 #--------------------------------------------------------------------------------------------------------------
 
