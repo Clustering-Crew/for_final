@@ -45,15 +45,15 @@ v5_s = t.hub.load(
     "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_s\weights\best.pt"
 )
 
-# v5_m = t.hub.load(
-#     "ultralytics/yolov5",
-#     "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_m\weights\best.pt"
-# )
+v5_m = t.hub.load(
+    "ultralytics/yolov5",
+    "custom",   path=r"D:\Underwater_imaging\All_results\combined\yolov5\combined_v5_m\weights\best.pt"
+)
 
 # Set confidence
 v5_n.conf = 0.25
 v5_s.conf = 0.25
-# v5_m.conf = 0.25
+v5_m.conf = 0.25
 #----------------------------------------------------------------------------------------------------------
 
 # YOLOv8-------------------------------------------------------------------------------------------------------
