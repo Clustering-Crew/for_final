@@ -95,8 +95,6 @@ for filename in os.listdir(opt.source):
     all_classes = []
     weights = [1, 1, 1, 1, 1, 1]
 
-    yolov5_models = [result_n, result_s, result_m]
-
     for i in result_n.xyxyn:
         labels = []
         conf = []
